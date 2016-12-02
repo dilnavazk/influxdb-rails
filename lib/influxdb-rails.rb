@@ -63,12 +63,9 @@ module InfluxDB
             values: {
               ts: timestamp,
             },
-            tags: {
-              tags: ex_data,
-              timestamp: timestamp,
-            },
+            tags: ex_data,
+            timestamp: timestamp,
           }
-
         rescue => e
           log :info, "[InfluxDB::Rails] Something went terribly wrong. Exception failed to take off! #{e.class}: #{e.message}"
         end

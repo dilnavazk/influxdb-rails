@@ -13,6 +13,7 @@ module InfluxDB
       attr_accessor :series_name_for_controller_runtimes
       attr_accessor :series_name_for_view_runtimes
       attr_accessor :series_name_for_db_runtimes
+      attr_accessor :series_name_for_exception_runtimes
 
       attr_accessor :application_id
       attr_accessor :application_name
@@ -52,6 +53,7 @@ module InfluxDB
         :series_name_for_controller_runtimes  => "rails.controller",
         :series_name_for_view_runtimes        => "rails.view",
         :series_name_for_db_runtimes          => "rails.db",
+        :series_name_for_exception_runtimes   => "rails.exceptions",
 
         :ignored_exceptions => %w{ActiveRecord::RecordNotFound
                                   ActionController::RoutingError},
@@ -95,6 +97,7 @@ module InfluxDB
         @series_name_for_controller_runtimes  = DEFAULTS[:series_name_for_controller_runtimes]
         @series_name_for_view_runtimes        = DEFAULTS[:series_name_for_view_runtimes]
         @series_name_for_db_runtimes          = DEFAULTS[:series_name_for_db_runtimes]
+        @series_name_for_exception_runtimes   = DEFAULTS[:series_name_for_exception_runtimes]
 
         @ignored_exceptions           = DEFAULTS[:ignored_exceptions].dup
         @ignored_exception_messages   = DEFAULTS[:ignored_exception_messages].dup
