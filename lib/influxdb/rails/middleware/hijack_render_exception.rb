@@ -3,7 +3,7 @@ module InfluxDB
     module Middleware
       module HijackRenderException
         def self.included(base)
-          base.send(:alias_method_chain, :render_exception, :influxdb)
+          base.send(:prepend, :render_exception, :influxdb)
         end
 
         def render_exception_with_influxdb(env, e)
