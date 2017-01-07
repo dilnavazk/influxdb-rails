@@ -1,10 +1,10 @@
 module InfluxDB
   module Rails
     module Middleware
+      
+      prepend HijackRenderException
+
       module HijackRenderException
-        def self.included(base)
-          base.prepend HijackRenderException
-        end
 
         def render_exception(env, e)
           controller = env["action_controller.instance"]
