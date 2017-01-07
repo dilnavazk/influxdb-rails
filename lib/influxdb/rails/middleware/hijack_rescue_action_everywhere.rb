@@ -1,14 +1,12 @@
 module InfluxDB
   module Rails
     module Middleware
-
-      prepend HijackRescueActionEverywhere
-      
       module HijackRescueActionEverywhere
-        # def self.included(base)
-        #   base.send(:alias_method_chain, :rescue_action_in_public, :influxdb)
-        #   base.send(:alias_method_chain, :rescue_action_locally, :influxdb)
-        # end
+        def self.included(base)
+          # base.send(:alias_method_chain, :rescue_action_in_public, :influxdb)
+          # base.send(:alias_method_chain, :rescue_action_locally, :influxdb)
+          base.prepend HijackRescueActionEverywhere
+        end
 
         private
         def rescue_action_in_public(e)
